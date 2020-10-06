@@ -1,45 +1,91 @@
 <template>
-  <div id="main">
-
-    <p class="subtitle" >پایه یازدهم</p>
-    <div class="container-fluid" style="width: 90%">
-
-      <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4">
-
-        <div v-for="course in KJcourses" class="col-5" s>
-          <div style="height: 350px;" class="card card-block card">
-
-<a :href="course.url.web">
-  <img src="" :data-src="course.photo" class="card-img-top lazy" style="width:300px ;height:200px" data-loaded="true" alt="...">
-
-</a>
-
-            <p> {{course.title}}</p>
-          </div>
+  <div
+    class="row blockWraper a--owl-carousel-row yazdahom a--content-carousel-1 dasboardLessons blockId-3 yazdahom lazy-done"
+    id="sectionId-yazdahom" a-lazyload="1" data-loaded="true">
+    <div class="col">
+  <div class="m-portlet a--owl-carousel-Wraper " id="owlCarousel_3">
+    <div id="sticky-wrapper111" class="sticky-wrapper" style="height: 45px;">
+      <div class="m-portlet__head a--owl-carousel-head" style="">
+        <div class="m-portlet__head-caption">
+          <div class="m-portlet__head-title"><h3 class="m-portlet__head-text"><span class="blueSquare"></span><a
+            href="https://alaatv.com/c?tags[0]=یازدهم" class="m-link"> پایه یازدهم </a></h3></div>
         </div>
-
-
+        <div class="m-portlet__head-tools"><a href="#"
+                                              class="btn btn-outline-metal m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill m-btn--air btn-viewGrid"
+                                              title="نمایش شبکه ای" data-owlcarousel-id="sectionId-yazdahom"><i
+          class="fa fa-th"></i></a><a href="#"
+                                      class="btn btn-outline-metal m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill m-btn--air btn-viewOwlCarousel"
+                                      title="نمایش افقی" data-owlcarousel-id="sectionId-yazdahom"
+                                      style="display: none;"><i class="fa fa-exchange-alt"></i></a></div>
       </div>
     </div>
+    <div class="m-portlet__body m-portlet__body--no-padding a--owl-carousel-body">
+      <div class="m-widget_head-owlcarousel-items ScrollCarousel a--owl-carousel-type-2 carousel_block_3">
+        <div class="ScrollCarousel-Items">
+          <div v-for="cource in Paye11" class="item carousel a--block-item a--block-type-set w-44333211"
+               data-owlcarousel-id="sectionId-yazdahom">
+            <div class="a--block-imageWrapper">
+              <div class="a--block-detailesWrapper">
+                <div class="a--block-set-count"><span class="a--block-set-count-number">12</span><br><span
+                  class="a--block-set-count-title">محتوا</span><br><a :href="cource.url.web"
+                                                                      class="a--block-set-count-icon">
+                  <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"
+                       class="style-scope yt-icon">
+                    <path
+                      d="M3.67 8.67h14V11h-14V8.67zm0-4.67h14v2.33h-14V4zm0 9.33H13v2.34H3.67v-2.34zm11.66 0v7l5.84-3.5-5.84-3.5z"
+                      class="style-scope yt-icon"></path>
+                  </svg>
+                </a></div>
+                <div class="a--block-set-author-pic"><img
+                  :src="cource.author.photo"
+                  class="m-widget19__img lazy-image lazy-done lazy"
+                  :data-src="cource.author.photo"
+                  :alt="cource.author.last_name" width="40" height="40" a-lazyload="1" data-loaded="true"></div>
+              </div>
+              <a :href="cource.url.web" class="a--block-imageWrapper-image"><img
+                :src="cource.photo"
+                :data-src="cource.photo"
+                :alt="cource.title" class="a--block-image lazy-image lazy-done lazy" width="453" height="254"
+                a-lazyload="1" data-loaded="true"></a></div>
+            <div class="a--block-infoWrapper">
+              <div class="a--block-titleWrapper"><a :href="cource.url.web" class="m-link"><span
+                class="m-badge m-badge--info m-badge--dot"></span> {{cource.title}} </a></div>
+            </div>
+          </div>
 
+          <div class="item carousel a--block-item a--block-item-showMoreItem w-44333211"
 
-
+               data-owlcarousel-id="sectionId-yazdahom"><a href="https://alaatv.com/c?tags[0]=یازدهم">
+            <button type="button" class="btn m-btn--air btn-outline-accent m-btn m-btn--custom m-btn--outline-2x"> نمایش
+              بیشتر از پایه یازدهم
+            </button>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+    </div>
+  </div>
+
 </template>
 
 <script>
   import axios from 'axios';
+
   export default {
-    name: "paye11" ,
-    data(){
-      return{
-        KJcourses : []
+    name: "paye",
+    data() {
+      return {
+        Paye11: []
       }
     },
     created() {
 
       axios.get('https://alaatv.com/api/v2/home').then(
-        res => { this.KJcourses =res.data.data[4].sets}
+        res => {
+          this.Paye11 = res.data.data[4].sets
+        }
       ).catch(
         err => console.log(err)
       )
@@ -80,28 +126,28 @@
 
 <style scoped>
 
-  .scrolling-wrapper{
+  .scrolling-wrapper {
     overflow-x: auto;
   }
 
-  body{
+  body {
     background-color: black;
     color: #fff;
     font-family: 'system-ui';
   }
 
-  h1{
+  h1 {
     font-weight: 800;
     font-size: 3em;
   }
 
-  .subtitle{
+  .subtitle {
     font-size: 1.25em;
     opacity: 0.65;
     margin-left: 800px;
   }
 
-  .card-block{
+  .card-block {
     height: 250px;
     background-color: #fff;
     border: none;
@@ -113,8 +159,7 @@
   }
 
 
-
-  #main{
+  #main {
     margin-bottom: 70px;
   }
 

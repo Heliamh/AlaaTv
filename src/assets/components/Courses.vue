@@ -1,27 +1,28 @@
 <template>
-  <div>
 
-<div id="base">
-  <raheabrisham/>
-  <kon-kur-jadid/>
-  <konkur-ghadim/>
+  <div id="base">
+    <raheabrisham/>
+    <kon-kur-jadid/>
+    <konkur-ghadim/>
 
-  <paye11/>
-  <paye10/>
+    <paye/>
+    <paye10/>
 
 
-</div>
   </div>
+
 </template>
 
 <script>
+
 
 
   export default {
     name: "Courses",
     components: {
 
-      Paye11: () => import("./courses/Paye10"),
+
+      Paye:() => import("./courses/Paye11"),
       Paye10: () => import("./courses/Paye10"),
       KonkurGhadim: () => import("./courses/KonkurGhadim"),
       KonKurJadid: () => import("./courses/KonKurJadid"),
